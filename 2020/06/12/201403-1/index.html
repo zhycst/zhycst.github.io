@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="出现次数最多的数问题描述 　　给定n个正整数，找出它们中出现次数最多的数。如果这样的数有多个，请输出其中最小的一个。输入格式 　　输入的第一行只有一个正整数n(1 ≤ n ≤ 1000)，表示数字的个数。 　　输入的第二行有n个整数s1, s2, …, sn (1 ≤ si ≤ 10000, 1 ≤ i ≤ n)。相邻的数用空格分隔。输出格式 　　输出这n个次数中出现次数最多的数。如果这样的数有多">
+<meta name="description" content="ccf201403-1相反数问题描述 　　有 N 个非零且各不相同的整数。请你编一个程序求出它们中有多少对相反数(a 和 -a 为一对相反数)。 输入格式 　　第一行包含一个正整数 N。(1 ≤ N ≤ 500)。　　第二行为 N 个用单个空格隔开的非零整数,每个数的绝对值不超过1000,保证这些整数各不相同。 输出格式 　　只输出一个整数,即这 N 个数中包含多少对相反数。 样例输入 ​">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ccf201312-1">
-<meta property="og:url" content="http://yoursite.com/2020/06/12/201312-1/index.html">
+<meta property="og:title" content="201403-1">
+<meta property="og:url" content="http://yoursite.com/2020/06/12/201403-1/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="出现次数最多的数问题描述 　　给定n个正整数，找出它们中出现次数最多的数。如果这样的数有多个，请输出其中最小的一个。输入格式 　　输入的第一行只有一个正整数n(1 ≤ n ≤ 1000)，表示数字的个数。 　　输入的第二行有n个整数s1, s2, …, sn (1 ≤ si ≤ 10000, 1 ≤ i ≤ n)。相邻的数用空格分隔。输出格式 　　输出这n个次数中出现次数最多的数。如果这样的数有多">
+<meta property="og:description" content="ccf201403-1相反数问题描述 　　有 N 个非零且各不相同的整数。请你编一个程序求出它们中有多少对相反数(a 和 -a 为一对相反数)。 输入格式 　　第一行包含一个正整数 N。(1 ≤ N ≤ 500)。　　第二行为 N 个用单个空格隔开的非零整数,每个数的绝对值不超过1000,保证这些整数各不相同。 输出格式 　　只输出一个整数,即这 N 个数中包含多少对相反数。 样例输入 ​">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-12T12:54:46.398Z">
-<meta property="article:modified_time" content="2020-06-12T13:17:00.166Z">
+<meta property="article:published_time" content="2020-06-12T13:19:25.731Z">
+<meta property="article:modified_time" content="2020-06-12T13:26:22.895Z">
 <meta property="article:author" content="zhangyue">
 <meta name="twitter:card" content="summary">
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/06/12/201312-1/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/06/12/201403-1/"/>
 
 
 
 
 
-  <title>ccf201312-1 | My Blog</title>
+  <title>201403-1 | My Blog</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/12/201312-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/12/201403-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhangyue">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ccf201312-1</h1>
+          <h1 class="post-title" itemprop="name headline">201403-1</h1>
         
 
         <div class="post-meta">
@@ -261,7 +261,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-12T20:54:46+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-12T21:19:25+08:00">
                 2020-06-12
               </time>
             
@@ -299,14 +299,16 @@
       
 
       
-        <h2 id="出现次数最多的数"><a href="#出现次数最多的数" class="headerlink" title="出现次数最多的数"></a>出现次数最多的数</h2><p>问题描述</p>
-<pre><code>　　给定n个正整数，找出它们中出现次数最多的数。如果这样的数有多个，请输出其中最小的一个。</code></pre><p>输入格式</p>
-<pre><code>　　输入的第一行只有一个正整数n(1 ≤ n ≤ 1000)，表示数字的个数。
-　　输入的第二行有n个整数s1, s2, …, sn (1 ≤ si ≤ 10000, 1 ≤ i ≤ n)。相邻的数用空格分隔。</code></pre><p>输出格式</p>
-<pre><code>　　输出这n个次数中出现次数最多的数。如果这样的数有多个，输出其中最小的一个。</code></pre><p>样例输入</p>
-<pre><code>6
-10 1 10 20 30 20</code></pre><p>样例输出</p>
-<pre><code>10</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; mp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">        mp[a[i]]++;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a.<span class="built_in">begin</span>(),a.<span class="built_in">end</span>());</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(mp[a[i]]&gt;=mp[a[ans]]) ans=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,a[ans]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="ccf201403-1"><a href="#ccf201403-1" class="headerlink" title="ccf201403-1"></a>ccf201403-1</h1><h2 id="相反数"><a href="#相反数" class="headerlink" title="相反数"></a>相反数</h2><p>问题描述</p>
+<p>　　有 N 个非零且各不相同的整数。请你编一个程序求出它们中有多少对相反数(a 和 -a 为一对相反数)。</p>
+<p>输入格式</p>
+<p>　　第一行包含一个正整数 N。(1 ≤ N ≤ 500)。<br>　　第二行为 N 个用单个空格隔开的非零整数,每个数的绝对值不超过1000,保证这些整数各不相同。</p>
+<p>输出格式</p>
+<p>　　只输出一个整数,即这 N 个数中包含多少对相反数。</p>
+<p>样例输入</p>
+<pre><code>​    5
+​    1 2 3 -1 -2</code></pre><p>样例输出</p>
+<pre><code>2</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; mp;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">        mp[a[i]]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(mp[a[i]]==mp[-a[i]]) ans++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans/<span class="number">2</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -330,8 +332,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/12/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2020/06/12/201312-1/" rel="next" title="ccf201312-1">
+                <i class="fa fa-chevron-left"></i> ccf201312-1
               </a>
             
           </div>
@@ -340,8 +342,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/06/12/201403-1/" rel="prev" title="201403-1">
-                201403-1 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/06/12/201409-1/" rel="prev" title="201409-1">
+                201409-1 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -456,7 +458,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#出现次数最多的数"><span class="nav-number">1.</span> <span class="nav-text">出现次数最多的数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ccf201403-1"><span class="nav-number">1.</span> <span class="nav-text">ccf201403-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相反数"><span class="nav-number">1.1.</span> <span class="nav-text">相反数</span></a></li></ol></li></ol></div>
             
 
           </div>
