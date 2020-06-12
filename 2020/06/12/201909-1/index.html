@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="ccf201909-1小明种苹果 123456789101112131415161718192021222324252627282930#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int main()&amp;#123;    int N,M;    int sum&#x3D;0;    int id,min&#x3D;-1e6;    scanf(&quot;%d%d&quot;,&amp;amp">
+<meta name="description" content="小明种苹果 123456789101112131415161718192021222324252627282930#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int main()&amp;#123;    int N,M;    int sum&#x3D;0;    int id,min&#x3D;-1e6;    scanf(&quot;%d%d&quot;,&amp;N,&amp;M);">
 <meta property="og:type" content="article">
-<meta property="og:title" content="201909-1">
+<meta property="og:title" content="ccf201909-1">
 <meta property="og:url" content="http://yoursite.com/2020/06/12/201909-1/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="ccf201909-1小明种苹果 123456789101112131415161718192021222324252627282930#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int main()&amp;#123;    int N,M;    int sum&#x3D;0;    int id,min&#x3D;-1e6;    scanf(&quot;%d%d&quot;,&amp;amp">
+<meta property="og:description" content="小明种苹果 123456789101112131415161718192021222324252627282930#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int main()&amp;#123;    int N,M;    int sum&#x3D;0;    int id,min&#x3D;-1e6;    scanf(&quot;%d%d&quot;,&amp;N,&amp;M);">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/06/12/201909-1/image/201909-1.png">
 <meta property="article:published_time" content="2020-06-12T14:16:59.695Z">
-<meta property="article:modified_time" content="2020-06-12T14:18:33.810Z">
+<meta property="article:modified_time" content="2020-06-12T14:36:13.992Z">
 <meta property="article:author" content="zhangyue">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/06/12/201909-1/image/201909-1.png">
@@ -127,7 +127,7 @@
 
 
 
-  <title>201909-1 | My Blog</title>
+  <title>ccf201909-1 | My Blog</title>
   
 
 
@@ -251,7 +251,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">201909-1</h1>
+          <h1 class="post-title" itemprop="name headline">ccf201909-1</h1>
         
 
         <div class="post-meta">
@@ -301,7 +301,7 @@
       
 
       
-        <h1 id="ccf201909-1"><a href="#ccf201909-1" class="headerlink" title="ccf201909-1"></a>ccf201909-1</h1><h2 id="小明种苹果"><a href="#小明种苹果" class="headerlink" title="小明种苹果"></a>小明种苹果</h2><p><img src="./image/201909-1.png" alt="avatar"></p>
+        <h2 id="小明种苹果"><a href="#小明种苹果" class="headerlink" title="小明种苹果"></a>小明种苹果</h2><p><img src="./image/201909-1.png" alt="avatar"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N,M;</span><br><span class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> id,<span class="built_in">min</span>=<span class="number">-1e6</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;N,&amp;M);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> t;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">        sum+=t;</span><br><span class="line">        <span class="keyword">int</span> min1=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;M;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> sub;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;sub);</span><br><span class="line">            sum+=sub;</span><br><span class="line">            min1-=sub;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(min1&gt;<span class="built_in">min</span>) </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">min</span>=min1;</span><br><span class="line">            id=i+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d"</span>,sum,id,<span class="built_in">min</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -326,8 +326,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/06/12/201903-1/" rel="next" title="201903-1">
-                <i class="fa fa-chevron-left"></i> 201903-1
+              <a href="/2020/06/12/201903-1/" rel="next" title="ccf201903-1">
+                <i class="fa fa-chevron-left"></i> ccf201903-1
               </a>
             
           </div>
@@ -336,8 +336,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/06/12/201912-1/" rel="prev" title="201912-1">
-                201912-1 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/06/12/201912-1/" rel="prev" title="ccf201912-1">
+                ccf201912-1 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -452,7 +452,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ccf201909-1"><span class="nav-number">1.</span> <span class="nav-text">ccf201909-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小明种苹果"><span class="nav-number">1.1.</span> <span class="nav-text">小明种苹果</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#小明种苹果"><span class="nav-number">1.</span> <span class="nav-text">小明种苹果</span></a></li></ol></div>
             
 
           </div>
