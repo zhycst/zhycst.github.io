@@ -363,4 +363,59 @@
         <tag>c/c++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ccf201412-2</title>
+    <url>/2020/06/14/201412-2/</url>
+    <content><![CDATA[<h2 id="z字形扫描"><a href="#z字形扫描" class="headerlink" title="z字形扫描"></a>z字形扫描</h2><p>问题描述</p>
+<pre><code>　　在图像编码的算法中，需要将一个给定的方形矩阵进行Z字形扫描(Zigzag Scan)。给定一个n×n的矩阵，Z字形扫描的过程如下图所示：</code></pre><p><img src="http://118.190.20.162/RequireFile.do?fid=Nad2EgMG" alt="z字形图片"></p>
+<pre><code>　　对于下面的4×4的矩阵，
+　　1 5 3 9
+　　3 7 5 6
+　　9 4 6 4
+　　7 3 1 3
+　　对其进行Z字形扫描后得到长度为16的序列：
+　　1 5 3 9 7 3 9 5 4 7 3 6 6 4 1 3
+　　请实现一个Z字形扫描的程序，给定一个n×n的矩阵，输出对这个矩阵进行Z字形扫描的结果。</code></pre><p>输入格式</p>
+<pre><code>　　输入的第一行包含一个整数n，表示矩阵的大小。
+　　输入的第二行到第n+1行每行包含n个正整数，由空格分隔，表示给定的矩阵。</code></pre><p>输出格式</p>
+<pre><code>　　输出一行，包含n×n个整数，由空格分隔，表示输入的矩阵经过Z字形扫描后的结果。</code></pre><p>样例输入</p>
+<pre><code>4
+1 5 3 9
+3 7 5 6
+9 4 6 4
+7 3 1 3</code></pre><p>样例输出</p>
+<pre><code>1 5 3 9 7 3 9 5 4 7 3 6 6 4 1 3</code></pre><p>评测用例规模与约定</p>
+<pre><code>　　1≤n≤500，矩阵元素为不超过1000的正整数。</code></pre><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">a</span><span class="params">(n+<span class="number">2</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n+<span class="number">2</span>;i++) a[i].resize(n+<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n+<span class="number">2</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>][i]=<span class="number">0</span>;</span><br><span class="line">        a[n+<span class="number">1</span>][i]=<span class="number">0</span>;</span><br><span class="line">        a[i][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        a[i][n+<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> c=<span class="number">1</span>,d=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(c!=n||d!=n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>,a[c][d]);</span><br><span class="line">        a[c][d]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[c+<span class="number">1</span>][d<span class="number">-1</span>]!=<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            c+=<span class="number">1</span>;</span><br><span class="line">            d-=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a[c<span class="number">-1</span>][d+<span class="number">1</span>]!=<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            c-=<span class="number">1</span>;</span><br><span class="line">            d+=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="number">1</span>&amp;&amp;d==n) c++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(c==n&amp;&amp;d==<span class="number">1</span>) d++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="number">1</span>||c==n) d+=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(d==<span class="number">1</span>||d==n) c+=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,a[n][n]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>ccf-2</category>
+      </categories>
+      <tags>
+        <tag>c/c++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ccf201503-2</title>
+    <url>/2020/06/14/201503-2/</url>
+    <content><![CDATA[<h2 id="数字排序"><a href="#数字排序" class="headerlink" title="数字排序"></a>数字排序</h2><p>问题描述</p>
+<pre><code>　　给定n个整数，请统计出每个整数出现的次数，按出现次数从多到少的顺序输出。</code></pre><p>输入格式</p>
+<pre><code>　　输入的第一行包含一个整数n，表示给定数字的个数。
+　　第二行包含n个整数，相邻的整数之间用一个空格分隔，表示所给定的整数。</code></pre><p>输出格式</p>
+<pre><code>　　输出多行，每行包含两个整数，分别表示一个给定的整数和它出现的次数。按出现次数递减的顺序输出。如果两个整数出现的次数一样多，则先输出值较小的，然后输出值较大的。</code></pre><p>样例输入</p>
+<pre><code>12
+5 2 3 3 1 3 4 2 5 2 3 5</code></pre><p>样例输出</p>
+<pre><code>3 4
+2 3
+5 3
+1 1
+4 1</code></pre><p>评测用例规模与约定</p>
+<pre><code>　　1 ≤ n ≤ 1000，给出的数都是不超过1000的非负整数。</code></pre><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Number</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;<span class="comment">//值</span></span><br><span class="line">    <span class="keyword">int</span> cnt;<span class="comment">//出现的次数  </span></span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> Number &amp;a)<span class="keyword">const</span></span><br><span class="line">    &#123;<span class="comment">//按出现的次数从多到少的顺序排列，如果一样多，按值的大小从小到大排列  </span></span><br><span class="line">        <span class="keyword">return</span> (cnt==a.cnt)?(val&lt;a.val):(cnt&gt;a.cnt);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;d;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;x;</span><br><span class="line">        d[x]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> m=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> it:d)&#123;  <span class="comment">//遍历</span></span><br><span class="line">    a[m].val=it.first;</span><br><span class="line">    a[m++].cnt=it.second;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a,a+m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;a[i].val&lt;&lt;<span class="string">" "</span>&lt;&lt;a[i].cnt&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>ccf-2</category>
+      </categories>
+      <tags>
+        <tag>c/c++</tag>
+        <tag>map</tag>
+        <tag>auto</tag>
+      </tags>
+  </entry>
 </search>

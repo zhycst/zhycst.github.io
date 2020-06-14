@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    ccf201509-2 |  太初古矿工
+    ccf201412-2 |  太初古矿工
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -44,7 +44,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-201509-2"
+  id="post-201412-2"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -55,15 +55,15 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  ccf201509-2
+  ccf201412-2
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/06/13/201509-2/" class="article-date">
-  <time datetime="2020-06-13T07:49:54.924Z" itemprop="datePublished">2020-06-13</time>
+      <a href="/2020/06/14/201412-2/" class="article-date">
+  <time datetime="2020-06-14T08:54:46.437Z" itemprop="datePublished">2020-06-14</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/ccf-2/">ccf-2</a>
@@ -74,7 +74,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">273</span>
+            <span class="post-count">515</span>
         </span>
     </span>
 
@@ -83,7 +83,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -98,22 +98,26 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="日期计算"><a href="#日期计算" class="headerlink" title="日期计算"></a>日期计算</h2><p>问题描述</p>
-<pre><code>　　给定一个年份y和一个整数d，问这一年的第d天是几月几日？
-　　注意闰年的2月有29天。满足下面条件之一的是闰年：
-　　1） 年份是4的整数倍，而且不是100的整数倍；
-　　2） 年份是400的整数倍。</code></pre><p>输入格式</p>
-<pre><code>　　输入的第一行包含一个整数y，表示年份，年份在1900到2015之间（包含1900和2015）。
-　　输入的第二行包含一个整数d，d在1至365之间。</code></pre><p>输出格式</p>
-<pre><code>　　输出两行，每行一个整数，分别表示答案的月份和日期。</code></pre><p>样例输入</p>
-<pre><code>2015
-80</code></pre><p>样例输出</p>
-<pre><code>3
-21</code></pre><p>样例输入</p>
-<pre><code>2000
-40</code></pre><p>样例输出</p>
-<pre><code>2
-9</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">12</span>]=&#123;<span class="number">31</span>,<span class="number">28</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">if</span>(n%<span class="number">4</span>==<span class="number">0</span>&amp;&amp;n%<span class="number">100</span>!=<span class="number">0</span>||n%<span class="number">400</span>==<span class="number">0</span>) a[<span class="number">1</span>]=<span class="number">29</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">12</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ans+=a[i];</span><br><span class="line">        <span class="keyword">if</span>(ans&gt;=m)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i+<span class="number">1</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d"</span>,a[i]-ans+m);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+  <h2 id="z字形扫描"><a href="#z字形扫描" class="headerlink" title="z字形扫描"></a>z字形扫描</h2><p>问题描述</p>
+<pre><code>　　在图像编码的算法中，需要将一个给定的方形矩阵进行Z字形扫描(Zigzag Scan)。给定一个n×n的矩阵，Z字形扫描的过程如下图所示：</code></pre><p><img src="http://118.190.20.162/RequireFile.do?fid=Nad2EgMG" alt="z字形图片"></p>
+<pre><code>　　对于下面的4×4的矩阵，
+　　1 5 3 9
+　　3 7 5 6
+　　9 4 6 4
+　　7 3 1 3
+　　对其进行Z字形扫描后得到长度为16的序列：
+　　1 5 3 9 7 3 9 5 4 7 3 6 6 4 1 3
+　　请实现一个Z字形扫描的程序，给定一个n×n的矩阵，输出对这个矩阵进行Z字形扫描的结果。</code></pre><p>输入格式</p>
+<pre><code>　　输入的第一行包含一个整数n，表示矩阵的大小。
+　　输入的第二行到第n+1行每行包含n个正整数，由空格分隔，表示给定的矩阵。</code></pre><p>输出格式</p>
+<pre><code>　　输出一行，包含n×n个整数，由空格分隔，表示输入的矩阵经过Z字形扫描后的结果。</code></pre><p>样例输入</p>
+<pre><code>4
+1 5 3 9
+3 7 5 6
+9 4 6 4
+7 3 1 3</code></pre><p>样例输出</p>
+<pre><code>1 5 3 9 7 3 9 5 4 7 3 6 6 4 1 3</code></pre><p>评测用例规模与约定</p>
+<pre><code>　　1≤n≤500，矩阵元素为不超过1000的正整数。</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">a</span><span class="params">(n+<span class="number">2</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n+<span class="number">2</span>;i++) a[i].resize(n+<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n+<span class="number">2</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[<span class="number">0</span>][i]=<span class="number">0</span>;</span><br><span class="line">        a[n+<span class="number">1</span>][i]=<span class="number">0</span>;</span><br><span class="line">        a[i][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        a[i][n+<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> c=<span class="number">1</span>,d=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(c!=n||d!=n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>,a[c][d]);</span><br><span class="line">        a[c][d]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[c+<span class="number">1</span>][d<span class="number">-1</span>]!=<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            c+=<span class="number">1</span>;</span><br><span class="line">            d-=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a[c<span class="number">-1</span>][d+<span class="number">1</span>]!=<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            c-=<span class="number">1</span>;</span><br><span class="line">            d+=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="number">1</span>&amp;&amp;d==n) c++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(c==n&amp;&amp;d==<span class="number">1</span>) d++;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(c==<span class="number">1</span>||c==n) d+=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(d==<span class="number">1</span>||d==n) c+=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,a[n][n]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reward-btn">
@@ -179,7 +183,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/06/13/201509-2/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/06/14/201412-2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -192,19 +196,10 @@
    
   <nav class="article-nav">
     
+    
       <a href="/2020/06/14/201503-2/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            ccf201503-2
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2020/06/13/201512-2/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">ccf201512-2</div>
+        <div class="article-nav-title">ccf201503-2</div>
       </a>
     
   </nav>

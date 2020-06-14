@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    ccf201509-2 |  太初古矿工
+    ccf201503-2 |  太初古矿工
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -44,7 +44,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-201509-2"
+  id="post-201503-2"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -55,15 +55,15 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  ccf201509-2
+  ccf201503-2
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/06/13/201509-2/" class="article-date">
-  <time datetime="2020-06-13T07:49:54.924Z" itemprop="datePublished">2020-06-13</time>
+      <a href="/2020/06/14/201503-2/" class="article-date">
+  <time datetime="2020-06-14T08:05:47.342Z" itemprop="datePublished">2020-06-14</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/ccf-2/">ccf-2</a>
@@ -74,7 +74,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">273</span>
+            <span class="post-count">410</span>
         </span>
     </span>
 
@@ -98,22 +98,19 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="日期计算"><a href="#日期计算" class="headerlink" title="日期计算"></a>日期计算</h2><p>问题描述</p>
-<pre><code>　　给定一个年份y和一个整数d，问这一年的第d天是几月几日？
-　　注意闰年的2月有29天。满足下面条件之一的是闰年：
-　　1） 年份是4的整数倍，而且不是100的整数倍；
-　　2） 年份是400的整数倍。</code></pre><p>输入格式</p>
-<pre><code>　　输入的第一行包含一个整数y，表示年份，年份在1900到2015之间（包含1900和2015）。
-　　输入的第二行包含一个整数d，d在1至365之间。</code></pre><p>输出格式</p>
-<pre><code>　　输出两行，每行一个整数，分别表示答案的月份和日期。</code></pre><p>样例输入</p>
-<pre><code>2015
-80</code></pre><p>样例输出</p>
-<pre><code>3
-21</code></pre><p>样例输入</p>
-<pre><code>2000
-40</code></pre><p>样例输出</p>
-<pre><code>2
-9</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">12</span>]=&#123;<span class="number">31</span>,<span class="number">28</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">if</span>(n%<span class="number">4</span>==<span class="number">0</span>&amp;&amp;n%<span class="number">100</span>!=<span class="number">0</span>||n%<span class="number">400</span>==<span class="number">0</span>) a[<span class="number">1</span>]=<span class="number">29</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">12</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ans+=a[i];</span><br><span class="line">        <span class="keyword">if</span>(ans&gt;=m)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i+<span class="number">1</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d"</span>,a[i]-ans+m);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+  <h2 id="数字排序"><a href="#数字排序" class="headerlink" title="数字排序"></a>数字排序</h2><p>问题描述</p>
+<pre><code>　　给定n个整数，请统计出每个整数出现的次数，按出现次数从多到少的顺序输出。</code></pre><p>输入格式</p>
+<pre><code>　　输入的第一行包含一个整数n，表示给定数字的个数。
+　　第二行包含n个整数，相邻的整数之间用一个空格分隔，表示所给定的整数。</code></pre><p>输出格式</p>
+<pre><code>　　输出多行，每行包含两个整数，分别表示一个给定的整数和它出现的次数。按出现次数递减的顺序输出。如果两个整数出现的次数一样多，则先输出值较小的，然后输出值较大的。</code></pre><p>样例输入</p>
+<pre><code>12
+5 2 3 3 1 3 4 2 5 2 3 5</code></pre><p>样例输出</p>
+<pre><code>3 4
+2 3
+5 3
+1 1
+4 1</code></pre><p>评测用例规模与约定</p>
+<pre><code>　　1 ≤ n ≤ 1000，给出的数都是不超过1000的非负整数。</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Number</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;<span class="comment">//值</span></span><br><span class="line">    <span class="keyword">int</span> cnt;<span class="comment">//出现的次数  </span></span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> Number &amp;a)<span class="keyword">const</span></span><br><span class="line">    &#123;<span class="comment">//按出现的次数从多到少的顺序排列，如果一样多，按值的大小从小到大排列  </span></span><br><span class="line">        <span class="keyword">return</span> (cnt==a.cnt)?(val&lt;a.val):(cnt&gt;a.cnt);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;d;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;x;</span><br><span class="line">        d[x]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> m=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> it:d)&#123;  <span class="comment">//遍历</span></span><br><span class="line">    a[m].val=it.first;</span><br><span class="line">    a[m++].cnt=it.second;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a,a+m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;a[i].val&lt;&lt;<span class="string">" "</span>&lt;&lt;a[i].cnt&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reward-btn">
@@ -179,12 +176,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/06/13/201509-2/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/06/14/201503-2/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/" rel="tag">c/c++</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/auto/" rel="tag">auto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/" rel="tag">c/c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/map/" rel="tag">map</a></li></ul>
 
     </footer>
   </div>
@@ -192,19 +189,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2020/06/14/201503-2/" class="article-nav-link">
+      <a href="/2020/06/14/201412-2/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            ccf201503-2
+            ccf201412-2
           
         </div>
       </a>
     
     
-      <a href="/2020/06/13/201512-2/" class="article-nav-link">
+      <a href="/2020/06/13/201509-2/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">ccf201512-2</div>
+        <div class="article-nav-title">ccf201509-2</div>
       </a>
     
   </nav>
