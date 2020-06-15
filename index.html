@@ -78,6 +78,201 @@
     
     
     <article
+  id="post-201312-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/06/15/201312-2/"
+    >ccf201312-2</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/06/15/201312-2/" class="article-date">
+  <time datetime="2020-06-15T07:09:54.704Z" itemprop="datePublished">2020-06-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ccf-2/">ccf-2</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="ISBN号码"><a href="#ISBN号码" class="headerlink" title="ISBN号码"></a>ISBN号码</h2><p>问题描述</p>
+<pre><code>　　每一本正式出版的图书都有一个ISBN号码与之对应，ISBN码包括9位数字、1位识别码和3位分隔符，其规定格式如“x-xxx-xxxxx-x”，其中符号“-”是分隔符（键盘上的减号），最后一位是识别码，例如0-670-82162-4就是一个标准的ISBN码。ISBN码的首位数字表示书籍的出版语言，例如0代表英语；第一个分隔符“-”之后的三位数字代表出版社，例如670代表维京出版社；第二个分隔之后的五位数字代表该书在出版社的编号；最后一位为识别码。</code></pre><p>识别码的计算方法如下：</p>
+<pre><code>　　首位数字乘以1加上次位数字乘以2……以此类推，用所得的结果mod 11，所得的余数即为识别码，如果余数为10，则识别码为大写字母X。例如ISBN号码0-670-82162-4中的识别码4是这样得到的：对067082162这9个数字，从左至右，分别乘以1，2，…，9，再求和，即0×1+6×2+……+2×9=158，然后取158 mod 11的结果4作为识别码。
+　　编写程序判断输入的ISBN号码中识别码是否正确，如果正确，则仅输出“Right”；如果错误，则输出是正确的ISBN号码。</code></pre><p>输入格式</p>
+<pre><code>　　输入只有一行，是一个字符序列，表示一本书的ISBN号码（保证输入符合ISBN号码的格式要求）。</code></pre><p>输出格式</p>
+<pre><code>　　输出一行，假如输入的ISBN号码的识别码正确，那么输出“Right”，否则，按照规定的格式，输出正确的ISBN号码（包括分隔符“-”）。</code></pre><p>样例输入</p>
+<pre><code>0-670-82162-4</code></pre><p>样例输出</p>
+<pre><code>Right</code></pre><p>样例输入</p>
+<pre><code>0-670-82162-0</code></pre><p>样例输出</p>
+<pre><code>0-670-82162-4</code></pre><p>用%c控制输入一个字符</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 10</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 11</span></span><br><span class="line"><span class="keyword">char</span> a[N+<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%c-%c%c%c-%c%c%c%c%c-%c"</span>,&amp;a[<span class="number">1</span>],&amp;a[<span class="number">2</span>],&amp;a[<span class="number">3</span>],&amp;a[<span class="number">4</span>],&amp;a[<span class="number">5</span>],&amp;a[<span class="number">6</span>],&amp;a[<span class="number">7</span>],&amp;a[<span class="number">8</span>],&amp;a[<span class="number">9</span>],&amp;a[<span class="number">10</span>]);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;N;i++)</span><br><span class="line">        sum+=i*(a[i]-<span class="string">'0'</span>);</span><br><span class="line">    sum%=MOD;</span><br><span class="line">    <span class="keyword">if</span>(sum==<span class="number">10</span>)</span><br><span class="line">    ch=<span class="string">'X'</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    ch=sum+<span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">if</span>(ch==a[<span class="number">10</span>])</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Right\n"</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c-%c%c%c-%c%c%c%c%c-%c\n"</span>,a[<span class="number">1</span>],a[<span class="number">2</span>],a[<span class="number">3</span>],a[<span class="number">4</span>],a[<span class="number">5</span>],a[<span class="number">6</span>],a[<span class="number">7</span>],a[<span class="number">8</span>],a[<span class="number">9</span>],ch);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/easy/" rel="tag">easy</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+</article>
+
+    
+    <article
+  id="post-201403-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/06/15/201403-2/"
+    >ccf201403-2</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/06/15/201403-2/" class="article-date">
+  <time datetime="2020-06-15T06:00:25.870Z" itemprop="datePublished">2020-06-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ccf-2/">ccf-2</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="窗口"><a href="#窗口" class="headerlink" title="窗口"></a>窗口</h2><p>问题描述</p>
+<pre><code>　　在某图形操作系统中,有 N 个窗口,每个窗口都是一个两边与坐标轴分别平行的矩形区域。窗口的边界上的点也属于该窗口。窗口之间有层次的区别,在多于一个窗口重叠的区域里,只会显示位于顶层的窗口里的内容。
+　　当你点击屏幕上一个点的时候,你就选择了处于被点击位置的最顶层窗口,并且这个窗口就会被移到所有窗口的最顶层,而剩余的窗口的层次顺序不变。如果你点击的位置不属于任何窗口,则系统会忽略你这次点击。
+　　现在我们希望你写一个程序模拟点击窗口的过程。</code></pre><p>输入格式</p>
+<pre><code>　　输入的第一行有两个正整数,即 N 和 M。(1 ≤ N ≤ 10,1 ≤ M ≤ 10)
+　　接下来 N 行按照从最下层到最顶层的顺序给出 N 个窗口的位置。 每行包含四个非负整数 x1, y1, x2, y2,表示该窗口的一对顶点坐标分别为 (x1, y1) 和 (x2, y2)。保证 x1 &lt; x2,y1 2。
+　　接下来 M 行每行包含两个非负整数 x, y,表示一次鼠标点击的坐标。
+　　题目中涉及到的所有点和矩形的顶点的 x, y 坐标分别不超过 2559 和　　1439。</code></pre><p>输出格式</p>
+<pre><code>　　输出包括 M 行,每一行表示一次鼠标点击的结果。如果该次鼠标点击选择了一个窗口,则输出这个窗口的编号(窗口按照输入中的顺序从 1 编号到 N);如果没有,则输出&quot;IGNORED&quot;(不含双引号)。</code></pre><p>样例输入</p>
+<pre><code>3 4
+0 0 4 4
+1 1 5 5
+2 2 6 6
+1 1
+0 0
+4 4
+0 5</code></pre><p>样例输出</p>
+<pre><code>2
+1
+1
+IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> help[<span class="number">11</span>][<span class="number">4</span>]=&#123;<span class="number">0</span>&#125;;                        <span class="comment">//存储子窗口</span></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">a</span><span class="params">(<span class="number">2600</span>)</span></span>;        </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2600</span>;i++) a[i].resize(<span class="number">1500</span>);  <span class="comment">//窗口初始化</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2600</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">1500</span>;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            a[i][j]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> t=<span class="number">0</span>;t&lt;n;t++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> s1,e1,s2,e2;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;s1,&amp;e1,&amp;s2,&amp;e2);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=s1;i&lt;=s2;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=e1;j&lt;=e2;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                a[i][j]=t+<span class="number">1</span>;                <span class="comment">//对应窗口设置为对应层次</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        help[t+<span class="number">1</span>][<span class="number">0</span>]=s1;</span><br><span class="line">        help[t+<span class="number">1</span>][<span class="number">1</span>]=e1;</span><br><span class="line">        help[t+<span class="number">1</span>][<span class="number">2</span>]=s2;</span><br><span class="line">        help[t+<span class="number">1</span>][<span class="number">3</span>]=e2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> b[<span class="number">11</span>][<span class="number">2</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> s,e;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;s,&amp;e);</span><br><span class="line">        b[i][<span class="number">0</span>]=s;</span><br><span class="line">        b[i][<span class="number">1</span>]=e;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> t=<span class="number">0</span>;t&lt;m;t++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> s=b[t][<span class="number">0</span>],e=b[t][<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span>(!a[s][e]) <span class="built_in">printf</span>(<span class="string">"IGNORED\n"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a[s][e]);         <span class="comment">//点击后，更改相应窗口层次</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=help[a[s][e]][<span class="number">0</span>];i&lt;=help[a[s][e]][<span class="number">2</span>];i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=help[a[s][e]][<span class="number">1</span>];j&lt;=help[a[s][e]][<span class="number">3</span>];j++)</span><br><span class="line">                a[i][j]=a[s][e];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/easy/" rel="tag">easy</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+</article>
+
+    
+    <article
+  id="post-201409-2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/06/15/201409-2/"
+    >ccf201409-2</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/06/15/201409-2/" class="article-date">
+  <time datetime="2020-06-15T05:05:26.488Z" itemprop="datePublished">2020-06-15</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ccf-2/">ccf-2</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h2><p>问题描述</p>
+<pre><code>　　在一个定义了直角坐标系的纸上，画一个(x1,y1)到(x2,y2)的矩形指将横坐标范围从x1到x2，纵坐标范围从y1到y2之间的区域涂上颜色。
+　　下图给出了一个画了两个矩形的例子。第一个矩形是(1,1) 到(4, 4)，用绿色和紫色表示。第二个矩形是(2, 3)到(6, 5)，用蓝色和紫色表示。图中，一共有15个单位的面积被涂上颜色，其中紫色部分被涂了两次，但在计算面积时只计算一次。在实际的涂色过程中，所有的矩形都涂成统一的颜色，图中显示不同颜色仅为说明方便。</code></pre><p><img src="http://118.190.20.162/RequireFile.do?fid=qMtgAT3j" alt="画图"></p>
+<pre><code>　　给出所有要画的矩形，请问总共有多少个单位的面积被涂上颜色。</code></pre><p>输入格式</p>
+<pre><code>　　输入的第一行包含一个整数n，表示要画的矩形的个数。
+　　接下来n行，每行4个非负整数，分别表示要画的矩形的左下角的横坐标与纵坐标，以及右上角的横坐标与纵坐标。</code></pre><p>输出格式</p>
+<pre><code>　　输出一个整数，表示有多少个单位的面积被涂上颜色。</code></pre><p>样例输入</p>
+<pre><code>2
+1 1 4 4
+2 3 6 5</code></pre><p>样例输出</p>
+<pre><code>15</code></pre><p>评测用例规模与约定</p>
+<pre><code>　　1&lt;=n&lt;=100，0&lt;=横坐标、纵坐标&lt;=100。</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">a</span><span class="params">(<span class="number">101</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">101</span>;i++) a[i].resize(<span class="number">101</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">101</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">101</span>;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            a[i][j]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">while</span>(n--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> s1,e1,s2,e2;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;s1,&amp;e1,&amp;s2,&amp;e2);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=s1;i&lt;s2;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=e1;j&lt;e2;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(a[i][j]==<span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    ans++;</span><br><span class="line">                    a[i][j]=<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/easy/" rel="tag">easy</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+</article>
+
+    
+    <article
   id="post-201412-2"
   class="article article-type-post"
   itemscope
@@ -477,185 +672,6 @@
        
   <h2 id="小中大"><a href="#小中大" class="headerlink" title="小中大"></a>小中大</h2><p><img src="http://118.190.20.162/RequireFile.do?fid=b7Gg64e9" alt="avatar"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">a</span><span class="params">(<span class="number">1e5</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> mina = a[<span class="number">0</span>], maxa = a[n - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span>(mina &gt; maxa) swap(mina, maxa);</span><br><span class="line">    <span class="keyword">if</span>(n % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d %d %d"</span>, maxa, a[n / <span class="number">2</span>], mina);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>((a[n / <span class="number">2</span> - <span class="number">1</span>] + a[n / <span class="number">2</span>]) % <span class="number">2</span> == <span class="number">1</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d %.1lf %d"</span>, maxa, (<span class="keyword">double</span>)((a[n / <span class="number">2</span> - <span class="number">1</span>] + a[n / <span class="number">2</span>]) / <span class="number">2.0</span>), mina);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d %d %d"</span>, maxa, (a[n / <span class="number">2</span> - <span class="number">1</span>] + a[n / <span class="number">2</span>]) / <span class="number">2</span>, mina);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-    <article
-  id="post-201812-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/06/12/201812-1/"
-    >ccf201812-1</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/06/12/201812-1/" class="article-date">
-  <time datetime="2020-06-12T14:12:27.311Z" itemprop="datePublished">2020-06-12</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="小明上学"><a href="#小明上学" class="headerlink" title="小明上学"></a>小明上学</h2><p>题目背景</p>
-<pre><code>　　小明是汉东省政法大学附属中学的一名学生，他每天都要骑自行车往返于家和学校。为了能尽可能充足地睡眠，他希望能够预计自己上学所需要的时间。他上学需要经过数段道路，相邻两段道路之间设有至多一盏红绿灯。
-　　京州市的红绿灯是这样工作的：每盏红绿灯有红、黄、绿三盏灯和一个能够显示倒计时的显示牌。假设红绿灯被设定为红灯 r 秒，黄灯 y 秒，绿灯 g 秒，那么从 0 时刻起，[0,r) 秒内亮红灯，车辆不许通过；[r, r+g) 秒内亮绿灯，车辆允许通过；[r+g, r+g+y) 秒内亮黄灯，车辆不许通过，然后依次循环。倒计时的显示牌上显示的数字 l（l &gt; 0）是指距离下一次信号灯变化的秒数。</code></pre><p>问题描述</p>
-<pre><code>　　一次上学的路上，小明记录下了经过每段路的时间，和各个红绿灯在小明到达路口时的颜色和倒计时秒数。希望你帮忙计算此次小明上学所用的时间。</code></pre><p>输入格式</p>
-<pre><code>　　输入的第一行包含空格分隔的三个正整数 r、y、g，表示红绿灯的设置。这三个数均不超过 106。
-　　输入的第二行包含一个正整数 n（n ≤ 100），表示小明总共经过的道路段数和看到的红绿灯数目。
-　　接下来的 n 行，每行包含空格分隔的两个整数 k、t。k=0 表示经过了一段道路，耗时 t 秒，此处 t 不超过 106；k=1、2、3 时，分别表示看到了一个红灯、黄灯、绿灯，且倒计时显示牌上显示的数字是 t，此处 t 分别不会超过 r、y、g。</code></pre><p>输出格式</p>
-<pre><code>　　输出一个数字，表示此次小明上学所用的时间。</code></pre><p>样例输入</p>
-<pre><code>30 3 30
-8
-0 10
-1 5
-0 11
-2 2
-0 6
-0 3
-3 10
-0 3</code></pre><p>样例输出</p>
-<pre><code>70</code></pre><p>样例说明</p>
-<pre><code>　　小明先经过第一段道路，用时 10 秒，然后等待 5 秒的红灯，再经过第二段道路，用时 11 秒，然后等待 2 秒的黄灯和 30 秒的红灯，再经过第三段、第四段道路，分别用时6、3秒，然后通过绿灯，再经过最后一段道路，用时 3 秒。共计 10 + 5 + 11 + 2 + 30 + 6 + 3 + 3=70 秒。</code></pre><p>评测用例规模与约定</p>
-<pre><code>　　测试点 1, 2 中不存在任何信号灯。
-　　测试点 3, 4 中所有的信号灯在被观察时均为绿灯。
-　　测试点 5, 6 中所有的信号灯在被观察时均为红灯。
-　　测试点 7, 8 中所有的信号灯在被观察时均为黄灯。
-　　测试点 9, 10 中将出现各种可能的情况。</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> r,y,g;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;r,&amp;y,&amp;g);</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">while</span>(n--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> k,t;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;k,&amp;t);</span><br><span class="line">        <span class="keyword">if</span>(k==<span class="number">0</span>||k==<span class="number">1</span>) ans+=t;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(k==<span class="number">2</span>) ans+=t+r;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-    <article
-  id="post-201809-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/06/12/201809-1/"
-    >ccf201809-1</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/06/12/201809-1/" class="article-date">
-  <time datetime="2020-06-12T14:10:26.662Z" itemprop="datePublished">2020-06-12</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="买菜"><a href="#买菜" class="headerlink" title="买菜"></a>买菜</h2><p>问题描述</p>
-<pre><code>　　在一条街上有n个卖菜的商店，按1至n的顺序排成一排，这些商店都卖一种蔬菜。
-　　第一天，每个商店都自己定了一个价格。店主们希望自己的菜价和其他商店的一致，第二天，每一家商店都会根据他自己和相邻商店的价格调整自己的价格。具体的，每家商店都会将第二天的菜价设置为自己和相邻商店第一天菜价的平均值（用去尾法取整）。
-　　注意，编号为1的商店只有一个相邻的商店2，编号为n的商店只有一个相邻的商店n-1，其他编号为i的商店有两个相邻的商店i-1和i+1。
-　　给定第一天各个商店的菜价，请计算第二天每个商店的菜价。</code></pre><p>输入格式</p>
-<pre><code>　　输入的第一行包含一个整数n，表示商店的数量。
-　　第二行包含n个整数，依次表示每个商店第一天的菜价。</code></pre><p>输出格式</p>
-<pre><code>　　输出一行，包含n个正整数，依次表示每个商店第二天的菜价。</code></pre><p>样例输入</p>
-<pre><code>8
-4 1 3 1 6 5 17 9</code></pre><p>样例输出</p>
-<pre><code>2 2 1 3 4 9 10 13</code></pre><p>数据规模和约定</p>
-<pre><code>　　对于所有评测用例，2 ≤ n ≤ 1000，第一天每个商店的菜价为不超过10000的正整数。</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">a</span><span class="params">(n,<span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(i==<span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">"%d "</span>,(a[<span class="number">0</span>]+a[<span class="number">1</span>])/<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(i==n<span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"%d "</span>,(a[i<span class="number">-1</span>]+a[i])/<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d "</span>,(a[i<span class="number">-1</span>]+a[i]+a[i+<span class="number">1</span>])/<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-    <article
-  id="post-201803-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/06/12/201803-1/"
-    >ccf201803-1</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/06/12/201803-1/" class="article-date">
-  <time datetime="2020-06-12T14:08:26.567Z" itemprop="datePublished">2020-06-12</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="跳一跳"><a href="#跳一跳" class="headerlink" title="跳一跳"></a>跳一跳</h2><p>问题描述</p>
-<pre><code>　　近来，跳一跳这款小游戏风靡全国，受到不少玩家的喜爱。
-　　简化后的跳一跳规则如下：玩家每次从当前方块跳到下一个方块，如果没有跳到下一个方块上则游戏结束。
-　　如果跳到了方块上，但没有跳到方块的中心则获得1分；跳到方块中心时，若上一次的得分为1分或这是本局游戏的第一次跳跃则此次得分为2分，否则此次得分比上一次得分多两分（即连续跳到方块中心时，总得分将+2，+4，+6，+8...）。
-　　现在给出一个人跳一跳的全过程，请你求出他本局游戏的得分（按照题目描述的规则）。</code></pre><p>输入格式</p>
-<pre><code>　　输入包含多个数字，用空格分隔，每个数字都是1，2，0之一，1表示此次跳跃跳到了方块上但是没有跳到中心，2表示此次跳跃跳到了方块上并且跳到了方块中心，0表示此次跳跃没有跳到方块上（此时游戏结束）。</code></pre><p>输出格式</p>
-<pre><code>　　输出一个整数，为本局游戏的得分（在本题的规则下）。</code></pre><p>样例输入</p>
-<pre><code>1 1 2 2 2 1 1 2 2 0</code></pre><p>样例输出</p>
-<pre><code>22</code></pre><p>数据规模和约定</p>
-<pre><code>　　对于所有评测用例，输入的数字不超过30个，保证0正好出现一次且为最后一个数字。</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> type;</span><br><span class="line">    <span class="keyword">int</span> score;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;type);</span><br><span class="line">    <span class="keyword">while</span>(type)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(type==<span class="number">1</span>) </span><br><span class="line">        &#123;</span><br><span class="line">            score=<span class="number">1</span>;</span><br><span class="line">            ans+=score;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(type==<span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(score==<span class="number">1</span>) score=<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                score+=<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ans+=score;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;type);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
     </div>
