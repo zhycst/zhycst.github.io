@@ -517,8 +517,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
   <entry>
     <title>LeetCode刷题</title>
     <url>/2020/04/26/LeetCode%E5%88%B7%E9%A2%98/</url>
-    <content><![CDATA[<p><strong><em>目录</em></strong><br>[TOC]</p>
-<p>##二叉树</p>
+    <content><![CDATA[<p>##二叉树</p>
 <p>###257. 二叉树的所有路径</p>
 <p>给定一个二叉树，返回所有从根节点到叶子节点的路径。</p>
 <p>说明: 叶子节点是指没有子节点的节点。</p>
