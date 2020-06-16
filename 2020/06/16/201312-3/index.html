@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    ccf01512-1 |  太初古矿工
+    ccf201312-3 |  太初古矿工
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -44,7 +44,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-201512-1"
+  id="post-201312-3"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -55,22 +55,26 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  ccf01512-1
+  ccf201312-3
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/06/12/201512-1/" class="article-date">
-  <time datetime="2020-06-12T13:42:44.359Z" itemprop="datePublished">2020-06-12</time>
-</a>   
+      <a href="/2020/06/16/201312-3/" class="article-date">
+  <time datetime="2020-06-16T08:53:25.662Z" itemprop="datePublished">2020-06-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ccf-3/">ccf-3</a>
+  </div>
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">148</span>
+            <span class="post-count">814</span>
         </span>
     </span>
 
@@ -79,29 +83,30 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
  
     </div>
       
-    <div class="tocbot"></div>
-
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="数位之和"><a href="#数位之和" class="headerlink" title="数位之和"></a>数位之和</h2><p>问题描述</p>
-<pre><code>　　给定一个十进制整数n，输出n的各位数字之和。</code></pre><p>输入格式</p>
-<pre><code>　　输入一个整数n。</code></pre><p>输出格式</p>
-<pre><code>　　输出一个整数，表示答案。</code></pre><p>样例输入</p>
-<pre><code>20151220</code></pre><p>样例输出</p>
-<pre><code>13</code></pre><p>样例说明</p>
-<pre><code>　　20151220的各位数字之和为2+0+1+5+1+2+2+0=13。</code></pre><p>评测用例规模与约定</p>
-<pre><code>　　所有评测用例满足：0 ≤ n ≤ 1000000000。</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> n;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">while</span>(n)</span><br><span class="line">    &#123;</span><br><span class="line">        ans+=n%<span class="number">10</span>;</span><br><span class="line">        n/=<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+  <p>##最大的矩形</p>
+<p>问题描述</p>
+<pre><code>　　在横轴上放了n个相邻的矩形，每个矩形的宽度是1，而第i（1 ≤ i ≤ n）个矩形的高度是hi。这n个矩形构成了一个直方图。例如，下图中六个矩形的高度就分别是3, 1, 6, 5, 2, 3。</code></pre><p><img src="http://118.190.20.162/RequireFile.do?fid=Fmhrjgtb" alt="pic"></p>
+<pre><code>　　请找出能放在给定直方图里面积最大的矩形，它的边要与坐标轴平行。对于上面给出的例子，最大矩形如下图所示的阴影部分，面积是10。</code></pre><p><img src="http://118.190.20.162/RequireFile.do?fid=gNe4DHhD" alt="pic1"></p>
+<p>输入格式</p>
+<pre><code>　　第一行包含一个整数n，即矩形的数量(1 ≤ n ≤ 1000)。
+　　第二行包含n 个整数h1, h2, … , hn，相邻的数之间由空格分隔。(1 ≤ hi ≤ 10000)。hi是第i个矩形的高度。</code></pre><p>输出格式</p>
+<pre><code>　　输出一行，包含一个整数，即给定直方图内的最大矩形的面积。</code></pre><p>样例输入</p>
+<pre><code>6
+3 1 6 5 2 3</code></pre><p>样例输出</p>
+<pre><code>10</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">// int largestRectangleArea(vector&lt;int&gt;&amp; heights) &#123;//求当前位置i左右低于它的值</span></span><br><span class="line"><span class="comment">//     int n = heights.size();</span></span><br><span class="line"><span class="comment">//     vector&lt;int&gt; left(n), right(n);</span></span><br><span class="line"><span class="comment">//     stack&lt;int&gt; mono_stack;</span></span><br><span class="line"><span class="comment">//     for (int i = 0; i &lt; n; ++i) &#123;</span></span><br><span class="line"><span class="comment">//         while (!mono_stack.empty() &amp;&amp; heights[mono_stack.top()] &gt;= heights[i]) &#123;</span></span><br><span class="line"><span class="comment">//             mono_stack.pop();</span></span><br><span class="line"><span class="comment">//         &#125;</span></span><br><span class="line"><span class="comment">//         left[i] = (mono_stack.empty() ? -1 : mono_stack.top());</span></span><br><span class="line"><span class="comment">//         mono_stack.push(i);</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//     mono_stack = stack&lt;int&gt;();</span></span><br><span class="line"><span class="comment">//     for (int i = n - 1; i &gt;= 0; --i) &#123;</span></span><br><span class="line"><span class="comment">//         while (!mono_stack.empty() &amp;&amp; heights[mono_stack.top()] &gt;= heights[i]) &#123;</span></span><br><span class="line"><span class="comment">//             mono_stack.pop();</span></span><br><span class="line"><span class="comment">//         &#125;</span></span><br><span class="line"><span class="comment">//         right[i] = (mono_stack.empty() ? n : mono_stack.top());</span></span><br><span class="line"><span class="comment">//         mono_stack.push(i);</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//     int ans = 0;</span></span><br><span class="line"><span class="comment">//     for (int i = 0; i &lt; n; ++i) &#123;</span></span><br><span class="line"><span class="comment">//         ans = max(ans, (right[i] - left[i] - 1) * heights[i]);</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//     return ans;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//1.显然，最大面积一定产生于以当前柱子为最大高度所能覆盖的面积集合中</span></span><br><span class="line">    <span class="comment">//2.其次要思考面积的计算，即等于当前柱子的高度*覆盖的宽度，覆盖的宽度等于其左右第一个小于其高度的柱子的下标之差</span></span><br><span class="line">    <span class="comment">//3.实现方式，因为需要考虑的只有三个柱子，即当前，左边比当前高度小的第一个柱子，右边比当前高度小的第一个柱子</span></span><br><span class="line">    <span class="comment">//因此可以用单调栈的数据结构来实现，即大于栈顶的高度入栈，小于栈顶高度出栈，并计算当前高度的面积，此时三个</span></span><br><span class="line">    <span class="comment">//柱子分别是栈顶高度，紧邻栈顶的高度，以及遍历的当前高度</span></span><br><span class="line">    <span class="comment">//时间复杂度O(n),空间复杂度O(n)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">largestRectangleArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; heights)</span> </span>&#123;</span><br><span class="line">    heights.push_back(<span class="number">0</span>);<span class="comment">//保证右边界为最后一个柱子时，方便计算</span></span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; S;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxarea</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;heights.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(!S.empty()&amp;&amp;heights[i]&lt;heights[S.top()])&#123;</span><br><span class="line">            <span class="keyword">int</span> curheight = S.top();</span><br><span class="line">            S.pop();</span><br><span class="line">            <span class="comment">//判断一下如果栈顶柱子为空，则令栈顶元素为0</span></span><br><span class="line">            <span class="keyword">int</span> area  = heights[curheight]*(!S.empty()?(i - S.top()<span class="number">-1</span>):i);</span><br><span class="line">            maxarea = <span class="built_in">max</span>(maxarea, area);</span><br><span class="line">        &#125;</span><br><span class="line">        S.push(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxarea;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> area=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">// for(int i=0;i&lt;n;i++)//暴力法</span></span><br><span class="line">    <span class="comment">// &#123;</span></span><br><span class="line">    <span class="comment">//     int min1=1e6;</span></span><br><span class="line">    <span class="comment">//     for(int j=i;j&gt;=0;j--)</span></span><br><span class="line">    <span class="comment">//     &#123;</span></span><br><span class="line">    <span class="comment">//         if(a[j]&lt;min1)</span></span><br><span class="line">    <span class="comment">//         &#123;</span></span><br><span class="line">    <span class="comment">//             min1=a[j];</span></span><br><span class="line">    <span class="comment">//         &#125;</span></span><br><span class="line">    <span class="comment">//         area=max(area,min1*(i-j+1));</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="comment">// printf("%d\n",area);</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,largestRectangleArea(a));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reward-btn">
@@ -167,30 +172,23 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/06/12/201512-1/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/06/16/201312-3/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/" rel="tag">c/c++</a></li></ul>
+
     </footer>
   </div>
 
    
   <nav class="article-nav">
     
-      <a href="/2020/06/12/201604-1/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            ccf201604-1
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/06/12/201509-1/" class="article-nav-link">
+      <a href="/2020/06/15/201312-2/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">ccf201509-1</div>
+        <div class="article-nav-title">ccf201312-2</div>
       </a>
     
   </nav>
