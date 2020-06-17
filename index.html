@@ -78,6 +78,75 @@
     
     
     <article
+  id="post-201403-4"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/06/17/201403-4/"
+    >CCF201403-4</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/06/17/201403-4/" class="article-date">
+  <time datetime="2020-06-17T13:18:40.198Z" itemprop="datePublished">2020-06-17</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CCF-4/">CCF-4</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="无线网络"><a href="#无线网络" class="headerlink" title="无线网络"></a>无线网络</h2><p>问题描述</p>
+<pre><code>　　目前在一个很大的平面房间里有 n 个无线路由器,每个无线路由器都固定在某个点上。任何两个无线路由器只要距离不超过 r 就能互相建立网络连接。
+　　除此以外,另有 m 个可以摆放无线路由器的位置。你可以在这些位置中选择至多 k 个增设新的路由器。
+　　你的目标是使得第 1 个路由器和第 2 个路由器之间的网络连接经过尽量少的中转路由器。请问在最优方案下中转路由器的最少个数是多少?</code></pre><p>输入格式</p>
+<pre><code>　　第一行包含四个正整数 n,m,k,r。(2 ≤ n ≤ 100,1 ≤ k ≤ m ≤ 100, 1 ≤ r ≤ 108)。
+　　接下来 n 行,每行包含两个整数 xi 和 yi,表示一个已经放置好的无线 路由器在 (xi, yi) 点处。输入数据保证第 1 和第 2 个路由器在仅有这 n 个路由器的情况下已经可以互相连接(经过一系列的中转路由器)。
+　　接下来 m 行,每行包含两个整数 xi 和 yi,表示 (xi, yi) 点处可以增设 一个路由器。
+　　输入中所有的坐标的绝对值不超过 108,保证输入中的坐标各不相同。</code></pre><p>输出格式</p>
+<pre><code>　　输出只有一个数,即在指定的位置中增设 k 个路由器后,从第 1 个路 由器到第 2 个路由器最少经过的中转路由器的个数。</code></pre><p>样例输入</p>
+<pre><code>5 3 1 3
+0 0
+5 5
+0 3
+0 5
+3 5
+3 3
+4 4
+3 0</code></pre><p>样例输出</p>
+<pre><code>2</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1000</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> x;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> y;</span><br><span class="line">&#125;input[<span class="number">200</span>];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> x;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> y;</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">step</span>;<span class="comment">//路径长度</span></span><br><span class="line">    <span class="keyword">int</span> kCount;<span class="comment">//路径上新增节点个数</span></span><br><span class="line">    <span class="keyword">int</span> pathNum;<span class="comment">//路径编号</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span>  visit[N][<span class="number">200</span>];<span class="comment">//记录每一条路径上节点是否被访问</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m,<span class="keyword">int</span> k,<span class="keyword">int</span> <span class="built_in">begin</span>,<span class="keyword">int</span> <span class="built_in">end</span>,<span class="keyword">long</span> <span class="keyword">long</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">max</span>;</span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">    node start,front;</span><br><span class="line">    start.x = input[<span class="built_in">begin</span>].x;</span><br><span class="line">    start.y = input[<span class="built_in">begin</span>].y;</span><br><span class="line">    start.<span class="built_in">step</span> = <span class="number">0</span>;</span><br><span class="line">    start.kCount = <span class="number">0</span>;</span><br><span class="line">    start.pathNum = num++;</span><br><span class="line">    visit[start.pathNum][<span class="built_in">begin</span>] = <span class="literal">true</span>;<span class="comment">//标记start.pathNUm 这条路径上的节点 begin被访问；</span></span><br><span class="line">    <span class="built_in">queue</span>&lt;node&gt; q;</span><br><span class="line">    q.push(start);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!q.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        front = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="comment">//到达终点 return</span></span><br><span class="line">        <span class="keyword">if</span>(front.x == input[<span class="built_in">end</span>].x &amp;&amp; front.y == input[<span class="built_in">end</span>].y)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> front.<span class="built_in">step</span> - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//搜索可以连接的路由器</span></span><br><span class="line">        <span class="keyword">if</span>(front.kCount == k)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">max</span> = n;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">max</span> = n + m;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="built_in">max</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            node v;</span><br><span class="line">            <span class="comment">//如果被访问过 则跳过</span></span><br><span class="line">            <span class="keyword">if</span>(visit[front.pathNum][i]==<span class="literal">true</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//如果不符合 r 条件 则跳过</span></span><br><span class="line">            <span class="keyword">if</span>((front.x - input[i].x) * (front.x - input[i].x) + (front.y - input[i].y) * (front.y - input[i].y) &gt; r*r)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            v.x = input[i].x;</span><br><span class="line">            v.y = input[i].y;</span><br><span class="line">            v.<span class="built_in">step</span> = front.<span class="built_in">step</span> + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;=n)</span><br><span class="line">            &#123;</span><br><span class="line">                v.kCount = front.kCount + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                v.kCount = front.kCount;</span><br><span class="line">            &#125;</span><br><span class="line">            v.pathNum = num++;</span><br><span class="line">            <span class="keyword">if</span>(num &gt;= N)</span><br><span class="line">            &#123;</span><br><span class="line">                num = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//标志维护</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n+m;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                visit[v.pathNum][j] = visit[front.pathNum][j];</span><br><span class="line">            &#125;</span><br><span class="line">            visit[v.pathNum][i] = <span class="literal">true</span>;</span><br><span class="line">            q.push(v);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,k;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> r;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m&gt;&gt;k&gt;&gt;r;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n+m;i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;input[i].x&gt;&gt;input[i].y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ans = bfs(n,m,k,<span class="number">0</span>,<span class="number">1</span>,r);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/" rel="tag">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+</article>
+
+    
+    <article
   id="post-201312-3"
   class="article article-type-post"
   itemscope
@@ -90,7 +159,7 @@
        
 <h2 itemprop="name">
   <a class="article-title" href="/2020/06/16/201312-3/"
-    >ccf201312-3</a> 
+    >CCF201312-3</a> 
 </h2>
  
 
@@ -101,7 +170,7 @@
   <time datetime="2020-06-16T08:53:25.662Z" itemprop="datePublished">2020-06-16</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/ccf-3/">ccf-3</a>
+    <a class="article-category-link" href="/categories/CCF-3/">CCF-3</a>
   </div>
    
     </div>
@@ -127,7 +196,7 @@
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/" rel="tag">c/c++</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li></ul>
 
     </footer>
   </div>
@@ -150,7 +219,7 @@
        
 <h2 itemprop="name">
   <a class="article-title" href="/2020/06/15/201312-2/"
-    >ccf201312-2</a> 
+    >CCF201312-2</a> 
 </h2>
  
 
@@ -161,7 +230,7 @@
   <time datetime="2020-06-15T07:09:54.704Z" itemprop="datePublished">2020-06-15</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/ccf-2/">ccf-2</a>
+    <a class="article-category-link" href="/categories/CCF-2/">CCF-2</a>
   </div>
    
     </div>
@@ -188,7 +257,7 @@
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/easy/" rel="tag">easy</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li></ul>
 
     </footer>
   </div>
@@ -211,7 +280,7 @@
        
 <h2 itemprop="name">
   <a class="article-title" href="/2020/06/15/201403-2/"
-    >ccf201403-2</a> 
+    >CCF201403-2</a> 
 </h2>
  
 
@@ -222,7 +291,7 @@
   <time datetime="2020-06-15T06:00:25.870Z" itemprop="datePublished">2020-06-15</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/ccf-2/">ccf-2</a>
+    <a class="article-category-link" href="/categories/CCF-2/">CCF-2</a>
   </div>
    
     </div>
@@ -260,7 +329,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/easy/" rel="tag">easy</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li></ul>
 
     </footer>
   </div>
@@ -283,7 +352,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
        
 <h2 itemprop="name">
   <a class="article-title" href="/2020/06/15/201409-2/"
-    >ccf201409-2</a> 
+    >CCF201409-2</a> 
 </h2>
  
 
@@ -294,7 +363,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
   <time datetime="2020-06-15T05:05:26.488Z" itemprop="datePublished">2020-06-15</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/ccf-2/">ccf-2</a>
+    <a class="article-category-link" href="/categories/CCF-2/">CCF-2</a>
   </div>
    
     </div>
@@ -322,7 +391,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/easy/" rel="tag">easy</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li></ul>
 
     </footer>
   </div>
@@ -345,7 +414,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
        
 <h2 itemprop="name">
   <a class="article-title" href="/2020/06/14/201412-2/"
-    >ccf201412-2</a> 
+    >CCF201412-2</a> 
 </h2>
  
 
@@ -356,7 +425,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
   <time datetime="2020-06-14T08:54:46.437Z" itemprop="datePublished">2020-06-14</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/ccf-2/">ccf-2</a>
+    <a class="article-category-link" href="/categories/CCF-2/">CCF-2</a>
   </div>
    
     </div>
@@ -392,7 +461,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/" rel="tag">c/c++</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li></ul>
 
     </footer>
   </div>
@@ -415,7 +484,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
        
 <h2 itemprop="name">
   <a class="article-title" href="/2020/06/14/201503-2/"
-    >ccf201503-2</a> 
+    >CCF201503-2</a> 
 </h2>
  
 
@@ -426,7 +495,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
   <time datetime="2020-06-14T08:05:47.342Z" itemprop="datePublished">2020-06-14</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/ccf-2/">ccf-2</a>
+    <a class="article-category-link" href="/categories/CCF-2/">CCF-2</a>
   </div>
    
     </div>
@@ -455,7 +524,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/auto/" rel="tag">auto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/" rel="tag">c/c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/map/" rel="tag">map</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/auto/" rel="tag">auto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/map/" rel="tag">map</a></li></ul>
 
     </footer>
   </div>
@@ -478,7 +547,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
        
 <h2 itemprop="name">
   <a class="article-title" href="/2020/06/13/201509-2/"
-    >ccf201509-2</a> 
+    >CCF201509-2</a> 
 </h2>
  
 
@@ -489,7 +558,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
   <time datetime="2020-06-13T07:49:54.924Z" itemprop="datePublished">2020-06-13</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/ccf-2/">ccf-2</a>
+    <a class="article-category-link" href="/categories/CCF-2/">CCF-2</a>
   </div>
    
     </div>
@@ -521,7 +590,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/" rel="tag">c/c++</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li></ul>
 
     </footer>
   </div>
@@ -544,7 +613,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
        
 <h2 itemprop="name">
   <a class="article-title" href="/2020/06/13/201512-2/"
-    >ccf201512-2</a> 
+    >CCF201512-2</a> 
 </h2>
  
 
@@ -555,7 +624,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
   <time datetime="2020-06-13T07:24:29.473Z" itemprop="datePublished">2020-06-13</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/ccf-2/">ccf-2</a>
+    <a class="article-category-link" href="/categories/CCF-2/">CCF-2</a>
   </div>
    
     </div>
@@ -601,7 +670,7 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/" rel="tag">c/c++</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C/C++</a></li></ul>
 
     </footer>
   </div>
@@ -640,52 +709,6 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
        
   <h2 id="报数"><a href="#报数" class="headerlink" title="报数"></a>报数</h2><p><img src="http://118.190.20.162/RequireFile.do?fid=23dGYbyQ" alt="avatar"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n%<span class="number">7</span>==<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">while</span>(n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(n%<span class="number">10</span>==<span class="number">7</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> n/=<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ans</span><span class="params">(<span class="number">4</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">int</span> count=n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=count;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(f(i)) </span><br><span class="line">        &#123;</span><br><span class="line">            ans[i%<span class="number">4</span>]++;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">4</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;ans[i]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans[<span class="number">0</span>]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-    <article
-  id="post-201909-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/06/12/201909-1/"
-    >ccf201909-1</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/06/12/201909-1/" class="article-date">
-  <time datetime="2020-06-12T14:16:59.695Z" itemprop="datePublished">2020-06-12</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="小明种苹果"><a href="#小明种苹果" class="headerlink" title="小明种苹果"></a>小明种苹果</h2><p><img src="http://118.190.20.162/RequireFile.do?fid=3gjBbNB3" alt="avatar"></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N,M;</span><br><span class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> id,<span class="built_in">min</span>=<span class="number">-1e6</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;N,&amp;M);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> t;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">        sum+=t;</span><br><span class="line">        <span class="keyword">int</span> min1=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;M;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> sub;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;sub);</span><br><span class="line">            sum+=sub;</span><br><span class="line">            min1-=sub;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(min1&gt;<span class="built_in">min</span>) </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">min</span>=min1;</span><br><span class="line">            id=i+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d"</span>,sum,id,<span class="built_in">min</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
     </div>

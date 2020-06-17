@@ -78,6 +78,52 @@
     
     
     <article
+  id="post-201909-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/06/12/201909-1/"
+    >ccf201909-1</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/06/12/201909-1/" class="article-date">
+  <time datetime="2020-06-12T14:16:59.695Z" itemprop="datePublished">2020-06-12</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="小明种苹果"><a href="#小明种苹果" class="headerlink" title="小明种苹果"></a>小明种苹果</h2><p><img src="http://118.190.20.162/RequireFile.do?fid=3gjBbNB3" alt="avatar"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N,M;</span><br><span class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> id,<span class="built_in">min</span>=<span class="number">-1e6</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;N,&amp;M);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> t;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;t);</span><br><span class="line">        sum+=t;</span><br><span class="line">        <span class="keyword">int</span> min1=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;M;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> sub;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;sub);</span><br><span class="line">            sum+=sub;</span><br><span class="line">            min1-=sub;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(min1&gt;<span class="built_in">min</span>) </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">min</span>=min1;</span><br><span class="line">            id=i+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d"</span>,sum,id,<span class="built_in">min</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+</article>
+
+    
+    <article
   id="post-201903-1"
   class="article article-type-post"
   itemscope
@@ -570,64 +616,6 @@
 <pre><code>4</code></pre><p>样例说明</p>
 <pre><code>　　第四天和第五天之间的波动最大，波动值为|3-7|=4。</code></pre><p>评测用例规模与约定</p>
 <pre><code>　　对于所有评测用例，2 ≤ n ≤ 1000。股票每一天的价格为1到10000之间的整数。</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-    <article
-  id="post-201604-1"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/06/12/201604-1/"
-    >ccf201604-1</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/06/12/201604-1/" class="article-date">
-  <time datetime="2020-06-12T13:44:41.142Z" itemprop="datePublished">2020-06-12</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="折点计算"><a href="#折点计算" class="headerlink" title="折点计算"></a>折点计算</h2><p>问题描述</p>
-<pre><code>　　给定n个整数表示一个商店连续n天的销售量。如果某天之前销售量在增长，而后一天销售量减少，则称这一天为折点，反过来如果之前销售量减少而后一天销售量增长，也称这一天为折点。其他的天都不是折点。如下图中，第3天和第6天是折点。</code></pre><p><img src="./image/p1.png" alt="avatar"></p>
-<pre><code>　　给定n个整数a1, a2, …, an表示销售量，请计算出这些天总共有多少个折点。
-　　为了减少歧义，我们给定的数据保证：在这n天中相邻两天的销售量总是不同的，即ai-1≠ai。注意，如果两天不相邻，销售量可能相同。</code></pre><p>输入格式</p>
-<p>　　输入的第一行包含一个整数n。<br>　　第二行包含n个整数，用空格分隔，分别表示a1, a2, …, an。</p>
-<p>输出格式</p>
-<p>　　输出一个整数，表示折点出现的数量。</p>
-<p>样例输入</p>
-<p>7</p>
-<p>5 4 1 2 3 6 4</p>
-<p>样例输出<br>2</p>
-<p>评测用例规模与约定</p>
-<p>　　所有评测用例满足：1 ≤ n ≤ 1000，每天的销售量是不超过10000的非负整数。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(pre1-pre2)*(t-pre1)&lt;<span class="number">0</span><span class="comment">//为折点</span></span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
     </div>
