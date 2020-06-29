@@ -78,6 +78,208 @@
     
     
     <article
+  id="post-图像处理"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/06/27/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"
+    >图像处理与计算机视觉期末总结</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/06/27/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="article-date">
+  <time datetime="2020-06-27T12:53:19.525Z" itemprop="datePublished">2020-06-27</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="图像锐化与图像平滑有何区别与联系"><a href="#图像锐化与图像平滑有何区别与联系" class="headerlink" title="图像锐化与图像平滑有何区别与联系"></a>图像锐化与图像平滑有何区别与联系</h2><pre><code>图象锐化是用于增强边缘，导致高频分量增强，会使图象清晰；
+图象平滑用于去噪，对图象高频分量即图象边缘会有影响。
+都属于图象增强，改善图象效果。</code></pre><h2 id="图像复原和增强的区别与联系"><a href="#图像复原和增强的区别与联系" class="headerlink" title="图像复原和增强的区别与联系"></a>图像复原和增强的区别与联系</h2><pre><code>图像在形成、传输和记录中，由于成像系统、传输介质和设备的不完善，导致图像质量下降，这一现象称为图像退化。 
+二者的目的都是为了改善图像的质量，但图像增强不考虑图像是如何退化的，只通过试探各种技术来来增强图像的视觉效果。
+因此，图像增强可以不顾增强后的图像是否失真，只要看着舒服就行。
+而图像复原则完全不同，需知道图像退化的机制和过程等先验知识，据此找出一种相应的逆过程解算方法，从而得到复原的图像。</code></pre><h2 id="计算机视觉系统由哪几部分构成"><a href="#计算机视觉系统由哪几部分构成" class="headerlink" title="计算机视觉系统由哪几部分构成"></a>计算机视觉系统由哪几部分构成</h2><ol>
+<li><p>视觉基础：</p>
+<p> 视觉基础理论：<br> 神经生理学、认知科学；<br> 色度学、光学；<br> 射影几何、矩阵理论。</p>
+</li>
+<li><p>底层处理：</p>
+<p> 图像处理：<br> 空域图像处理；<br> 频域图像处理；<br> 图像特征提取。</p>
+</li>
+<li><p>中层处理</p>
+<p> 图像分割；<br> 相机标定；<br> 深度估计；<br> 运动估计。</p>
+</li>
+<li><p>高层处理</p>
+<p> 三维重建；<br> 目标识别。</p>
+</li>
+</ol>
+<h2 id="简述计算机视觉中的单眼线索"><a href="#简述计算机视觉中的单眼线索" class="headerlink" title="简述计算机视觉中的单眼线索"></a>简述计算机视觉中的单眼线索</h2><pre><code>人类即使在头部固定且只使用单目来观测外部世界时，也可以得到比较准确的深度知觉。
+此时，人类的主要依据是外界环境及观察对象的物理特性或现象。
+仅凭一只眼睛的视觉即可提供的线索就是单眼线索。</code></pre><p>单眼线索主要的有如下几种：</p>
+<ol>
+<li><p>物体的相对大小</p>
+<pre><code>所谓的透视原理基于一个简单的光学事实：离眼睛或镜头近的物体看起来比离得远的大。如果我们看到两个人或任何两个物体，凭经验得知两者同样大小，那么，看起来稍大的一定离我们近。</code></pre></li>
+<li><p>会聚的线条</p>
+<pre><code>透视原理中的一个特殊情况是，两条平行线会在远距离处汇合在“消失点”上。我们在此时就熟悉的一个例子是两条铁轨在远方地平线上会聚为一点.</code></pre></li>
+<li><p>质地变化率</p>
+<pre><code>在物质世界中，许多物体的空间位置往往都具有规则性：草地中的草、森林中的树、池塘中的百合、地板中的木板、地毯上的花纹等。当这类参照物离我们近时，我们就会清楚地看见其花纹和细部；但继续向前看，它们逐渐变小、不清晰了。詹姆斯·杰·吉布森把这种消失的现象称为“质地变化率”，它可以有力地显示景深。 </code></pre></li>
+<li><p>部分重叠</p>
+<pre><code>当一个不透明的固体置于另一物体前时，我们就看不到后面的了。</code></pre></li>
+<li><p>清晰焦点的平面</p>
+<pre><code>获得景深的一个光学手法是有选择的聚焦。把焦点对在前景物体上，那么背景则模糊而且景深浅。这就把画面分成两个相对应的平面，焦点清晰的前景被摄体则从模糊的背景中跃然呈现。相反，也可以让焦点清晰的被摄体远离模糊的前景。</code></pre></li>
+<li><p>空气透视</p>
+<pre><code>最早注意到这种效果的是400年前的达·芬奇。空气中的雾、烟或着灰尘能散射日光，使远处的物体比近处的物体显得淡而模糊。</code></pre></li>
+<li><p>颜色</p>
+<pre><code>在自然景物中，冷色的物体(绿、蓝等)比色彩较淡或饱和度较低纳物体看上去较远，而暖色(大红、橙色等)表示色彩鲜艳的看上去较近。这是由于自然景色中人们看馈了原野(绿蓝色)作为远景，它们受大气水汽的影响看上去白蒙蒙的，而近处的物体则受到大气的影响小，饱和度较高。</code></pre></li>
+<li><p>照明与阴影</p>
+<pre><code>有力地刻画被摄体的强烈侧光照明、或强调质地和使阴影投向用相机方向的逆光照明，可以加强三维空间的效果。不产生任何阴影的平光或散射光只能拍摄出平淡的形象，而不会产生三维空间的效果。</code></pre></li>
+</ol>
+<h2 id="图像分割的原理"><a href="#图像分割的原理" class="headerlink" title="图像分割的原理"></a>图像分割的原理</h2><ol>
+<li><p>图像分割是指将图像划分为子区域或对象的过程</p>
+<pre><code>所谓图像分割指的是根据灰度、颜色、纹理和形状等特征把图像划分成若干互不交迭的区域，并使这些特征在同一区域内呈现出相似性，而在不同区域间呈现出明显的差异性。</code></pre></li>
+<li><p>有选择性地定位感兴趣对象在图像中的位置和范围</p>
+</li>
+</ol>
+<p>原理：</p>
+<ol>
+<li><p>基于区域之间的不连续性</p>
+<p> 先找到点、线（宽度为1）、边（不定宽度），再确定区域</p>
+</li>
+<li><p>基于区域内部相似性</p>
+<p> 通过选择阈值，找到灰度值相似的区域，区域的外轮廓就是对象的边</p>
+</li>
+<li><p>同时使用不连续性和相似性</p>
+</li>
+</ol>
+<h2 id="请写出几种彩色模型-并阐述它们应用领域"><a href="#请写出几种彩色模型-并阐述它们应用领域" class="headerlink" title="请写出几种彩色模型,并阐述它们应用领域"></a>请写出几种彩色模型,并阐述它们应用领域</h2><pre><code>RGB 模型：红(R)、绿(G)、蓝(B)三基色混合。主要用于彩色显示器和彩色视频摄像机。
+CMY 和 CMYK 模型： C： 青色，从白色中滤去红色。M：品红，从白色中滤去 绿色。Y: 黄色，从白色中滤去蓝色。K：黑色。主要应用于印刷行业。
+HSI 模型：色度(H) .饱和度(S) .亮度 (I)。面向一般彩色图像的应用。
+YUV 模型：亮度(Y)、色度(UV)。面向电视信号传输。</code></pre><h2 id="阐述空间滤波和频域滤波的异同点"><a href="#阐述空间滤波和频域滤波的异同点" class="headerlink" title="阐述空间滤波和频域滤波的异同点"></a>阐述空间滤波和频域滤波的异同点</h2><pre><code>空间域增强是直接对图像各素进行处理；
+频率域增强是对图像经傅立叶变换后的频谱成分进行处理，然后逆傅立叶变换获得所需的图像。 </code></pre><hr>
+<pre><code>使用空间模板进行的图像处理，被称为空间滤波。模板本身被称为空间滤波器，模模叫窗口、掩模或核 。
+在待处理图像中逐点地移动掩模，每点输出值取决于所考虑的邻域像素值。
+频域滤波是图像经傅里叶变换以后，边缘和其他尖锐变化（如噪音）在图像的灰度级中主要处于傅里叶变换的高频部分。
+通过对图像的傅立叶频谱进行低通滤波(低频通过，高频衰减)来去除噪声，通过对图像的傅立叶频谱进行高通滤波(高频通过，低频衰减) 突出图像中的边缘和轮廓。 
+空间域滤波和频域滤波对存在图像噪声有一定的减弱作用和对边缘的检测效果。</code></pre><h2 id="阐述图像旋转时所采用正向映射和逆向映射过程"><a href="#阐述图像旋转时所采用正向映射和逆向映射过程" class="headerlink" title="阐述图像旋转时所采用正向映射和逆向映射过程"></a>阐述图像旋转时所采用正向映射和逆向映射过程</h2><p>图像旋转时需要注意如下两点：</p>
+<ol>
+<li>图像旋转之前，为了避免信息的丢失，一定要有坐标平移。</li>
+<li>图像旋转之后，会出现许多空洞点， 对这些空洞点必须进行填充处理，否则画面效果不好，一般也称这种操作为插值处理。最简单的方法是行插值方法或列插值方法：<ul>
+<li>找出当前行的最小和最大的非白点的坐标，记作： (i, k1)、 (i, k2)。</li>
+<li>在(k1, k2)范围内进行插值，插值的方法是：空点的像素值等于前一点的像素值。</li>
+<li>同样的操作重复到所有行。经过如上的插值处理之后， 图像效果就变得自然。列插值方法与此类同，</li>
+</ul>
+</li>
+</ol>
+<h2 id="常用的灰度插值有几种，概括它们的优缺点"><a href="#常用的灰度插值有几种，概括它们的优缺点" class="headerlink" title="常用的灰度插值有几种，概括它们的优缺点"></a>常用的灰度插值有几种，概括它们的优缺点</h2><p>最常用的灰度插值有三种，分别是最邻近插值法、双线性插值法和高阶插值法。</p>
+<ol>
+<li>最邻近插值法就是最邻近点重复，实现简单，但容易造成失真。</li>
+<li>双线性插值法根据点 P(x0，y0)的四个相邻 点的灰度值，通过两次插值计算出灰度值 f(x0，y0) 。 计算量大，但缩放后图像质量高，不会出现图像不连 续的情况。 具有低通滤波器的性质， 使高频分量减弱， 所以使图像的轮廓在一定程度上受损。</li>
+<li>高阶插值法是 的计算量比双线性插值法更大，因此精度也更高</li>
+</ol>
+<h2 id="彩色模型下如何实施图像的补色"><a href="#彩色模型下如何实施图像的补色" class="headerlink" title="彩色模型下如何实施图像的补色"></a>彩色模型下如何实施图像的补色</h2><p>以二十四色相环为例：正对120度角的是补色，180度角的是反色<br>计算公式分别是：</p>
+<pre><code>反色: CNew = 255 - COld
+
+补色: CNew = Max(R,G,B) + Min(R,G,B) - COld</code></pre><h2 id="傅里叶正逆变换"><a href="#傅里叶正逆变换" class="headerlink" title="傅里叶正逆变换"></a>傅里叶正逆变换</h2><p>e^jx=cosx+jsinx</p>
+<p><img src="https://images.cnblogs.com/cnblogs_com/zhycst/1794727/o_200627151234%E7%A6%BB%E6%95%A3%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E5%85%AC%E5%BC%8F.png" alt="傅里叶公式"></p>
+<p><img src="https://images.cnblogs.com/cnblogs_com/zhycst/1794727/o_200627151553%E4%BA%8C%E7%BB%B4%E7%A6%BB%E6%95%A3%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%BE%8B%E9%A2%98.png" alt="例题"></p>
+<h2 id="模板匹配方法"><a href="#模板匹配方法" class="headerlink" title="模板匹配方法"></a>模板匹配方法</h2><ol>
+<li><p>基于相关的模板匹配</p>
+<ul>
+<li><p>相关性原理：首先创建一个模板，把模板里每一个像素当成一个特征，所有像素按列组成一个行向量a，即模板的特征向量。在图像中寻找与模板最匹配的区域b，通过计算cosθ，即两个向量之间的夹角来衡量匹配的好坏。通过公式计算roi区域（模板）与待测图之间的相似度。越接近1，两块区域相似度越高。否则，相似度越低。</p>
+</li>
+<li><p>应用场合：适用于光照不均匀，明暗变化大且背景不能太复杂的场合。<br><img src="https://images.cnblogs.com/cnblogs_com/zhycst/1794727/o_200628143944%E7%9B%B8%E5%85%B3%E6%A8%A1%E6%9D%BF%E5%85%AC%E5%BC%8F.png" alt="公式"></p>
+</li>
+</ul>
+</li>
+<li><p>基于误差平方和的模板匹配</p>
+</li>
+<li><p>特征模板匹配</p>
+</li>
+<li><p>特征匹配</p>
+</li>
+</ol>
+<h2 id="卷积神经网络CNN"><a href="#卷积神经网络CNN" class="headerlink" title="卷积神经网络CNN"></a>卷积神经网络CNN</h2><p>卷积神经网络CNN的结构一般包含这几个层</p>
+<ul>
+<li>输入层：用于数据的输入</li>
+<li>卷积层：使用卷积核进行特征提取和特征映射</li>
+<li>激励层：由于卷积也是一种线性运算，因此需要增加非线性映射</li>
+<li>池化层：进行下采样，对特征图稀疏处理，减少数据运算量。</li>
+<li>全连接层：通常在CNN的尾部进行重新拟合，减少特征信息的损失</li>
+<li>输出层：用于输出结果</li>
+</ul>
+<h2 id="Hough"><a href="#Hough" class="headerlink" title="Hough"></a>Hough</h2><h3 id="Hough变换检测直线的基本思想"><a href="#Hough变换检测直线的基本思想" class="headerlink" title="Hough变换检测直线的基本思想"></a>Hough变换检测直线的基本思想</h3><p>对于边界上的n个点的点集，找出共线的点集和直线方程</p>
+<p>对于任意两点的直线方程：y = ax + b，构造一个参数a, b的平面，则：</p>
+<ol>
+<li>xy平面上的任意一条直线y=ax+b，对应在参数ab平面都有一个点</li>
+<li>过xy平面上过一个点(x,y)的所有直线，构成参数ab平面上的一条直线</li>
+<li>xy平面上如果点(x1,y1)与点(x2,y2)共线，那么这两点在参数ab平面上的<br>直线将有一个交点，具有相同的a和b</li>
+<li>在参数ab平面相交直线最多的点，对应的x,y平面上的直线就是我们的解</li>
+</ol>
+<h3 id="Hough变换的具体步骤"><a href="#Hough变换的具体步骤" class="headerlink" title="Hough变换的具体步骤"></a>Hough变换的具体步骤</h3><ol>
+<li>首先确定参数a，b的每个取值区间，等间隔的离散化 ，建立对应的二维表格</li>
+<li>对于图像中的每个边缘点，在参数直线代入a的离散值得量化的b值，得到一组参数空间点，判断数据点在对应的表格中是否出现，出现加1</li>
+<li>找到表格中最大数对应的参数值，a和b，写出直线方程</li>
+</ol>
+<p>另一形式：</p>
+<pre><code>将ρ, θ空间量化成许多小格。根据图像内的每个边缘点(x0,y0)点代入θ的量化值，算出各个ρ，所得值（经量化）落在某个小格内，便使该小格的计数累加器加1，当全部(x,y)点变换后，对小格进行检验，有大的计数值的小格对应于共线点，其(ρ, θ)值作为直线的拟合参数。</code></pre><h3 id="检测圆（Hough变换的扩展）"><a href="#检测圆（Hough变换的扩展）" class="headerlink" title="检测圆（Hough变换的扩展）"></a>检测圆（Hough变换的扩展）</h3><p>圆的方程是：</p>
+<ol>
+<li><p>在参数空间里建立一个3D（三个参数的空间）的累加单元的数组A,其元素可写为A(a,b,r) 。</p>
+</li>
+<li><p>让a和b依次变化而根据式计算出r,并对A累加:A(a,b,r)=A(a,b,r)+1</p>
+<pre><code>从理论上说，计算量和累加器尺寸随参数个数的增加是指数增加的，所以实际中哈夫变换比较适合检测较简单曲线上的点。</code></pre></li>
+</ol>
+<h2 id="贝叶斯决策例题"><a href="#贝叶斯决策例题" class="headerlink" title="贝叶斯决策例题"></a>贝叶斯决策例题</h2><pre><code>假设在某个局部地区的细胞识别中, 第一类表 示正常, 第二类表示异常, 两类的先验概率分别为: 正常P(ω1)=0.9,
+P(ω2)=0.1。 现有一个待识别样 本细胞, 其观察值为x, 从类条件概率密度函数曲线 p(x|ωi)上可查得:
+p(x|ω1)=0.2, p(x|ω2)=0.4, 试判断该细胞是否正常。</code></pre><p><img src="https://img-blog.csdnimg.cn/20200313150222104.png" alt="q1"></p>
+<p><img src="https://images.cnblogs.com/cnblogs_com/zhycst/1794727/o_200628133335%E8%B4%9D%E5%8F%B6%E6%96%AFq2.png" alt="q2"></p>
+<h2 id="区域生长"><a href="#区域生长" class="headerlink" title="区域生长"></a>区域生长</h2><p>算法实现：</p>
+<ol>
+<li>根据图像的不同应用选择一个或一组种子，它或者是最亮或最暗的点，或者是位于点簇中心的点。</li>
+<li>选择一个相似性准则。（灰度级、 彩色、 纹理、 梯度等特性相似）</li>
+<li>从该种子开始向外扩张，不断将与集合中各个像素连通、且满足相似性准则的像素加入集合。</li>
+<li>上一过程进行到不再有满足条件的新结点加入集<br>   合为止。（终止准则）</li>
+</ol>
+<h2 id="区域分裂与合并（四叉树）"><a href="#区域分裂与合并（四叉树）" class="headerlink" title="区域分裂与合并（四叉树）"></a>区域分裂与合并（四叉树）</h2><p>算法实现：</p>
+<ol>
+<li>将图像分成分成大小相等的四个区域</li>
+<li>对每个区域不满足相似性准则的继续划分</li>
+<li>如果相邻的区域满足特定的准则，则将其合并</li>
+<li>反复进行（1）和（2）操作，直至不再有新的分裂与合并为止</li>
+</ol>
+<p><img src="https://images.cnblogs.com/cnblogs_com/zhycst/1794727/o_200628134407%E5%8C%BA%E5%9F%9F%E5%88%86%E8%A3%82%E4%B8%8E%E5%90%88%E5%B9%B6.png" alt="例题"></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+</article>
+
+    
+    <article
   id="post-201409-3"
   class="article article-type-post"
   itemscope
@@ -208,7 +410,7 @@ HELLOisNOTHello</code></pre><p>样例说明</p>
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/" rel="tag">bfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/" rel="tag">c/c++</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/" rel="tag">bfs</a></li></ul>
 
     </footer>
   </div>
@@ -653,86 +855,6 @@ IGNORED</code></pre><p><em>简单题注意处理边界</em></p>
 40</code></pre><p>样例输出</p>
 <pre><code>2
 9</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">12</span>]=&#123;<span class="number">31</span>,<span class="number">28</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">30</span>,<span class="number">31</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">if</span>(n%<span class="number">4</span>==<span class="number">0</span>&amp;&amp;n%<span class="number">100</span>!=<span class="number">0</span>||n%<span class="number">400</span>==<span class="number">0</span>) a[<span class="number">1</span>]=<span class="number">29</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">12</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ans+=a[i];</span><br><span class="line">        <span class="keyword">if</span>(ans&gt;=m)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i+<span class="number">1</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d"</span>,a[i]-ans+m);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/" rel="tag">c/c++</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-    <article
-  id="post-201512-2"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/06/13/201512-2/"
-    >ccf201512-2</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/06/13/201512-2/" class="article-date">
-  <time datetime="2020-06-13T07:24:29.473Z" itemprop="datePublished">2020-06-13</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ccf-2/">ccf-2</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="消除类游戏"><a href="#消除类游戏" class="headerlink" title="消除类游戏"></a>消除类游戏</h2><p>问题描述</p>
-<pre><code>　　消除类游戏是深受大众欢迎的一种游戏，游戏在一个包含有n行m列的游戏棋盘上进行，棋盘的每一行每一列的方格上放着一个有颜色的棋子，当一行或一列上有连续三个或更多的相同颜色的棋子时，这些棋子都被消除。当有多处可以被消除时，这些地方的棋子将同时被消除。
-　　现在给你一个n行m列的棋盘，棋盘中的每一个方格上有一个棋子，请给出经过一次消除后的棋盘。
-　　请注意：一个棋子可能在某一行和某一列同时被消除。</code></pre><p>输入格式</p>
-<pre><code>　　输入的第一行包含两个整数n, m，用空格分隔，分别表示棋盘的行数和列数。
-　　接下来n行，每行m个整数，用空格分隔，分别表示每一个方格中的棋子的颜色。颜色使用1至9编号。</code></pre><p>输出格式</p>
-<pre><code>　　输出n行，每行m个整数，相邻的整数之间使用一个空格分隔，表示经过一次消除后的棋盘。如果一个方格中的棋子被消除，则对应的方格输出0，否则输出棋子的颜色编号。</code></pre><p>样例输入</p>
-<pre><code>4 5
-2 2 3 1 2
-3 4 5 1 4
-2 3 2 1 3
-2 2 2 4 4</code></pre><p>样例输出</p>
-<pre><code>2 2 3 0 2
-3 4 5 0 4
-2 3 2 0 3
-0 0 0 4 4</code></pre><p>样例说明</p>
-<pre><code>　　棋盘中第4列的1和第4行的2可以被消除，其他的方格中的棋子均保留。</code></pre><p>样例输入</p>
-<pre><code>4 5
-2 2 3 1 2
-3 1 1 1 1
-2 3 2 1 3
-2 2 3 3 3</code></pre><p>样例输出</p>
-<pre><code>2 2 3 0 2
-3 0 0 0 0
-2 3 2 0 3
-2 2 0 0 0</code></pre><p>样例说明</p>
-<pre><code>　　棋盘中所有的1以及最后一行的3可以被同时消除，其他的方格中的棋子均保留。
-评测用例规模与约定
-　　所有的评测用例满足：1 ≤ n, m ≤ 30。</code></pre><p>思路：</p>
-<pre><code>建立一个辅助数组，先逐行消除大于三的数，原数组被改变，利用辅助数组逐列消除大于三的数</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;a.<span class="built_in">size</span>();i++) a[i].resize(m);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; b;      <span class="comment">//辅助数组b</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;m;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    b=a;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)       <span class="comment">//逐行扫描</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> count=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;m;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i][j]==a[i][j<span class="number">-1</span>]) count++;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(count&gt;=<span class="number">3</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> t=j<span class="number">-1</span>;t&gt;=j-count;t--)</span><br><span class="line">                    &#123;</span><br><span class="line">                        a[i][t]=<span class="number">0</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                count=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(count&gt;=<span class="number">3</span>)        <span class="comment">//到末尾都没改变的大于三的数单独消除</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> t=m<span class="number">-1</span>;t&gt;=m-count;t--)</span><br><span class="line">            &#123;</span><br><span class="line">                a[i][t]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)    <span class="comment">//原理同上</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> count=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(b[j][i]==b[j<span class="number">-1</span>][i]) count++;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(count&gt;=<span class="number">3</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> t=j<span class="number">-1</span>;t&gt;=j-count;t--)</span><br><span class="line">                    &#123;</span><br><span class="line">                        a[t][i]=<span class="number">0</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                count=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(count&gt;=<span class="number">3</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> t=n<span class="number">-1</span>;t&gt;=n-count;t--)</span><br><span class="line">            &#123;</span><br><span class="line">                a[t][i]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)    <span class="comment">//打印</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;m;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d "</span>,a[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
     </div>
